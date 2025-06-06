@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PipelineOS — Teaser</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #f9f9f9;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 100%;
+      }
+      button {
+        padding: 0.75rem;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background-color: #333;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 400px;
+        text-align: center;
+      }
+      .modal-content h2 {
+        margin: 0 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Welcome to PipelineOS</h1>
+      <p>The calm inside your digital storm. Launching soon — join the pipeline for updates.</p>
+
+      <form id="pipelineForm">
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="comment" placeholder="Optional: What are you excited for?"></textarea>
+        <button type="submit">Join the Pipeline</button>
+      </form>
+
+      <div class="modal" id="thankYouModal">
+        <div class="modal-content">
+          <h2>Thank you!</h2>
+          <p>You're now on the list. We'll be in touch soon.</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const form = document.getElementById('pipelineForm');
+      const modal = document.getElementById('thankYouModal');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://airtable.com/shrkt7cfKZzk5UmQW');
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            modal.style.display = 'flex';
+            form.reset();
+          } else {
+            alert('Submission failed. Please try again.');
+          }
+        };
+        xhr.send(formData);
+      });
+    </script>
+  </body>
+</html>
