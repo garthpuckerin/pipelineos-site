@@ -14,11 +14,36 @@
         color: #222;
         min-height: 100vh;
       }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+      header .brand {
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+        color: #444;
+      }
+      header nav a {
+        text-decoration: none;
+        color: #666;
+        font-size: 0.9rem;
+        margin-left: 1rem;
+      }
       main {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex: 1;
         padding: 2rem 1rem;
         max-width: 600px;
         margin: 0 auto;
@@ -125,6 +150,14 @@
     </style>
   </head>
   <body>
+    <header>
+      <div class="brand">PipelineOS</div>
+      <nav>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+      </nav>
+    </header>
+
     <main>
       <div class="logo">PipelineOS</div>
       <h1>Welcome to PipelineOS</h1>
