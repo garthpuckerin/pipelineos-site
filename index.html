@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PipelineOS — Teaser</title>
+
+    <!-- Google Fonts & Stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon Emoji Icon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
   </head>
   <body>
+    <!-- Header Navigation -->
     <header>
       <div class="brand">PipelineOS</div>
       <nav>
@@ -17,21 +22,39 @@
       </nav>
     </header>
 
+    <!-- Main Content Section -->
     <main>
       <div class="logo">PipelineOS</div>
       <h1>Welcome to PipelineOS</h1>
       <p>The calm inside your digital storm. Launching soon — join the pipeline for updates.</p>
 
+      <!-- Inline About Description -->
       <p class="about-inline">
         PipelineOS is your personal operating system for managing projects, automations, and ideas — all in one streamlined interface.
       </p>
 
+      <!-- Product Description Section -->
+      <section class="product-description">
+        <h2>Your Digital Storm Wrangler</h2>
+        <p>
+          PipelineOS is your command center for life’s chaos — a modular, AI-powered system that helps you track, plan, automate, and regain control.
+        </p>
+        <p>
+          Think of it as your digital meteorologist — built to monitor the pressure systems of modern life. From job searches and finance to media wrangling and creative builds, PipelineOS adapts to your storm.
+        </p>
+        <p>
+          Start with the calm: a clean dashboard. Then add modules as you grow — CRM, LMS, media pipelines, personal analytics, and more. All built to just work.
+        </p>
+      </section>
+
+      <!-- Signup Form -->
       <form id="pipelineForm">
         <input type="email" name="email" placeholder="Your email" required />
         <textarea name="comment" placeholder="Optional: What are you excited for?"></textarea>
         <button type="submit">Join the Pipeline</button>
       </form>
 
+      <!-- Thank You Modal -->
       <div class="modal" id="thankYouModal">
         <div class="modal-content">
           <h2>Thank you!</h2>
@@ -40,18 +63,23 @@
       </div>
     </main>
 
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Blurred Concepts. All rights reserved.</p>
       <p>Built with care for the digital storm ahead.</p>
     </footer>
 
+    <!-- Form Submission Script (Airtable Integration) -->
     <script>
       const form = document.getElementById('pipelineForm');
       const modal = document.getElementById('thankYouModal');
 
+      // Handle form submission
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(form);
+
+        // Send form data to Airtable
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://airtable.com/shrkt7cfKZzk5UmQW');
         xhr.onload = function () {
