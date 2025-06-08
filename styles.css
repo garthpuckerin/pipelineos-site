@@ -138,10 +138,19 @@ footer {
 /* ========== PRODUCT DESCRIPTION SECTION ========== */
 .product-description {
   padding: 3rem 2rem;
-  background-color: #f9f9f9;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   text-align: center;
+  max-width: 700px;
   border-top: 1px solid #ddd;
 }
+
+form {
+  margin-top: 3rem; /* 👈 adds spacing from product description */
+}
+
 
 .product-description h2 {
   font-size: 2rem;
